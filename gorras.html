@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El Despertar | Tienda</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+}
+
+/* HEADER */
+header {
+    background: black;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* PRODUCTOS */
+.container {
+    padding: 20px;
+}
+
+.productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.producto {
+    background: white;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+}
+
+.producto img {
+    width: 100%;
+}
+
+/* BOTONES */
+button {
+    background: black;
+    color: white;
+    padding: 10px;
+    border: none;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #06d536;
+}
+
+/* CARRITO */
+.carrito {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    width: 250px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.carrito h3 {
+    margin-top: 0;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>El Despertar</h1>
+    <p>Tienda oficial 🧢</p>
+</header>
+
+<div class="container">
+
+    <h2>Productos</h2>
+
+    <div class="productos">
+
+        <div class="producto">
+            <img src="gorra1.jpg.jpeg">
+            <h3>Gorra 1.1</h3>
+            <p>$50000</p>
+            <button onclick="Añadir('Gorra Negra',50000)">comprar</button>
+        </div>
+
+        <div class="producto">
+            <img src="gorra2.jpg.jpeg">
+            <h3>Gorra Negra</h3>
+            <p>$45000</p>
+            <button onclick="agregar('Gorra Blanca',45000)">comprar</button>
+        </div>
+
+        <div class="producto">
+            <img src="gorra3.jpg.jpeg">
+            <h3>Gorra Roja</h3>
+            <p>$55000</p>
+            <button onclick="agregar('Gorra Roja',55000)">comprar</button>
+        </div>
+         <div class="producto">
+            <img src="gorra4.jpg.jpeg">
+            <h3>Gorra Negra</h3>
+            <p>$45000</p>
+            <button onclick="agregar('Gorra Blanca',45000)">comprar</button>
+        </div>
+         <div class="producto">
+            <img src="gorra5.jpg.jpeg">
+            <h3>Gorra Negra</h3>
+            <p>$45000</p>
+            <button onclick="agregar('Gorra Blanca',45000)">comprar</button>
+        </div>
+         <div class="producto">
+            <img src="gorra6.jpg.jpeg">
+            <h3>Gorra Negra</h3>
+            <p>$45000</p>
+            <button onclick="agregar('Gorra Blanca',45000)">comprar</button>
+        </div>
+         <div class="producto">
+            <img src="gorra7.jpg.jpeg">
+            <h3>Gorra Negra</h3>
+            <p>$45000</p>
+            <button onclick="agregar('Gorra Blanca',45000)">comprar</button>
+        </div>
+    </div>
+
+</div>
+
+<!-- CARRITO -->
+<div class="carrito">
+    <h3>🛒 Carrito</h3>
+    <ul id="lista"></ul>
+    <p>Total: $<span id="total">0</span></p>
+    <button onclick="comprar()">Finalizar compra</button>
+</div>
+
+<footer>
+    <p>© 2026 El Despertar</p>
+</footer>
+
+<script>
+let carrito = [];
+let total = 0;
+
+function agregar(nombre, precio){
+    carrito.push(nombre);
+    total += precio;
+
+    let lista = document.getElementById("lista");
+    let item = document.createElement("li");
+    item.textContent = nombre;
+
+    lista.appendChild(item);
+
+    document.getElementById("total").textContent = total;
+}
+
+function comprar(){
+    let mensaje = "Hola, quiero comprar:%0A";
+
+    carrito.forEach(p => {
+        mensaje += "- " + p + "%0A";
+    });
+
+    mensaje += "Total: $" + total;
+
+    window.open("https://wa.me/573001487184?text=" + mensaje);
+}
+</script>
+
+</body>
+</html>
