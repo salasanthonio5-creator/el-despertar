@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El Despertar | Premium</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #000;
+    color: white;
+    overflow-x: hidden;
+}
+
+/* ANIMACIÓN ENTRADA */
+body {
+    opacity: 0;
+    animation: fadeIn 1.5s ease forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/* HEADER */
+header {
+    text-align: center;
+    padding: 40px;
+}
+
+/* LOGO ANIMADO */
+.logo {
+    font-size: 42px;
+    font-weight: bold;
+    color: white;
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px #00f7ff;
+    }
+    to {
+        text-shadow: 0 0 30px #00f7ff, 0 0 60px #00f7ff;
+    }
+}
+
+/* HERO TIPO APPLE */
+.hero {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.hero h1 {
+    font-size: 40px;
+}
+
+.hero p {
+    color: #aaa;
+}
+
+/* PRODUCTOS */
+.container {
+    padding: 40px;
+}
+
+.productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+/* TARJETAS PREMIUM */
+.producto {
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    transition: 0.4s;
+}
+
+.producto:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 20px 40px rgba(0,255,255,0.2);
+}
+
+.producto img {
+    width: 100%;
+    border-radius: 15px;
+}
+
+.producto h3 {
+    margin: 10px 0;
+}
+
+/* BOTÓN PREMIUM */
+button {
+    background: linear-gradient(45deg, #00f7ff, #0077ff);
+    border: none;
+    padding: 12px;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+/* CARRITO */
+.carrito {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(10px);
+    padding: 15px;
+    border-radius: 15px;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 30px;
+    color: #666;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">EL DESPERTAR</div>
+</header>
+
+<div class="hero">
+    <h1>Diseño. Estilo. Actitud.</h1>
+    <p>Gorras premium con identidad única 🧢</p>
+</div>
+
+<div class="container">
+
+    <div class="productos">
+
+        <div class="producto">
+            <img src="gorra1.jpg.jpeg">
+            <h3>Gorra Negra Premium</h3>
+            <p>$50.000</p>
+            <button onclick="agregar('Gorra Negra',50000)">Adquirir</button>
+        </div>
+
+        <div class="producto">
+            <img src="gorra2.jpg.jpeg">
+            <h3>Gorra Blanca Premium</h3>
+            <p>$45.000</p>
+            <button onclick="agregar('Gorra Blanca',45000)">Adquirir</button>
+        </div>
+
+        <div class="producto">
+            <img src="gorra3.jpg.jpeg">
+            <h3>Gorra Roja Premium</h3>
+            <p>$55.000</p>
+            <button onclick="agregar('Gorra Roja',55000)">Adquirir</button>
+        </div>
+      <div class="producto">
+            <img src="gorra4.jpg.jpeg">
+            <h3>Gorra Roja Premium</h3>
+            <p>$55.000</p>
+            <button onclick="agregar('Gorra Roja',55000)">Adquirir</button>
+        </div>
+        <div class="producto">
+            <img src="gorra5.jpg.jpeg">
+            <h3>Gorra Roja Premium</h3>
+            <p>$55.000</p>
+            <button onclick="agregar('Gorra Roja',55000)">Adquirir</button>
+        </div>
+        <div class="producto">
+            <img src="gorra6.jpg.jpeg">
+            <h3>Gorra Roja Premium</h3>
+            <p>$55.000</p>
+            <button onclick="agregar('Gorra Roja',55000)">Adquirir</button>
+        </div>
+        <div class="producto">
+            <img src="gorra7.jpg.jpeg">
+            <h3>Gorra Roja Premium</h3>
+            <p>$55.000</p>
+            <button onclick="agregar('Gorra Roja',55000)">Adquirir</button>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="carrito">
+    <h3>🛒</h3>
+    <ul id="lista"></ul>
+    <p>Total: $<span id="total">0</span></p>
+    <button onclick="comprar()">Comprar</button>
+</div>
+
+<footer>
+    <p>© 2026 El Despertar</p>
+</footer>
+
+<script>
+let carrito = [];
+let total = 0;
+
+function agregar(nombre, precio){
+    carrito.push(nombre);
+    total += precio;
+
+    let lista = document.getElementById("lista");
+    let item = document.createElement("li");
+    item.textContent = nombre;
+    lista.appendChild(item);
+
+    document.getElementById("total").textContent = total;
+}
+
+function comprar(){
+    let mensaje = "Hola, quiero comprar:%0A";
+
+    carrito.forEach(p => {
+        mensaje += "- " + p + "%0A";
+    });
+
+    mensaje += "Total: $" + total;
+
+    window.open("https://wa.me/573001487184?text=" + mensaje);
+}
+</script>
+
+</body>
+</html>
