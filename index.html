@@ -225,15 +225,17 @@ function agregar(nombre, precio){
 }
 
 function comprar(){
-    let mensaje = "Hola, quiero comprar:%0A";
+    let mensaje = "Hola, quiero comprar:%0A%0A";
 
     carrito.forEach(p => {
-        mensaje += "- " + p + "%0A";
+        mensaje += "🧢 " + p + "%0A";
     });
 
-    mensaje += "Total: $" + total;
+    mensaje += "%0A💰 Total: $" + total;
+    mensaje += "%0A%0A📍 ¿Cómo hago el pago por Nequi o Daviplata?";
+    mensaje += "%0A🚚 ¿Hacen envíos en Valledupar?";
 
-    window.open("https://wa.me/573015423842?text=" + mensaje);
+    window.open("https://wa.me/3015423842=" + mensaje);
 }
 </script>
 
