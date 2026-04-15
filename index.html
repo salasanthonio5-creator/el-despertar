@@ -225,19 +225,26 @@ function agregar(nombre, precio){
 }
 
 function comprar(){
-    let mensaje = "Hola, quiero comprar:%0A%0A";
+    let mensaje = "🧢 *EL DESPERTAR* %0A%0A";
+    mensaje += "Hola, quiero comprar:%0A%0A";
 
     carrito.forEach(p => {
         mensaje += "🧢 " + p + "%0A";
     });
 
-    mensaje += "%0A💰 Total: $" + total;
-    mensaje += "%0A%0A📍 ¿Cómo hago el pago por Nequi o Daviplata?";
-    mensaje += "%0A🚚 ¿Hacen envíos en Valledupar?";
-    
+    mensaje += "%0A💰 *Total:* $" + total;
+
+    mensaje += "%0A%0A👤 *Nombre:*";
+    mensaje += "%0A📞 *Teléfono:*";
+    mensaje += "%0A📍 *Dirección:*";
+    mensaje += "%0A🏠 *Barrio:*";
+
+    mensaje += "%0A%0A💳 Pago por Nequi o Daviplata";
+    mensaje += "%0A🚚 Envío en Valledupar";
     mensaje += "%0A%0A🔥 Vi sus productos en Instagram";
-    
+
     window.open("https://wa.me/573015423842?text=" + mensaje);
+}
    
 }
 </script>
