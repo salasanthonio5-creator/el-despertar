@@ -223,25 +223,24 @@ function agregar(nombre, precio){
 
     document.getElementById("total").textContent = total;
 }
-function comprar(){
+    
+function comprar() {
+   
     let mensaje = "Hola, quiero comprar:%0A%0A";
 
-    carrito.forEach(p => {
+    
+    Carrito.forEach(p => {
         mensaje += "🧢 " + p + "%0A";
     });
 
-    mensaje += "%0A💰 Total: $" + total;
+    mensaje += "%0A💰 total: $" + total;
     mensaje += "%0A%0A📍 ¿Cómo hago el pago por Nequi o Daviplata?";
     mensaje += "%0A🚚 ¿Hacen envíos en Valledupar?";
-
     mensaje += "%0A🔥 Vi sus productos en Instagram";
 
-    window.open("https://wa.me/573015423842?text=" + mensaje) 
-}
-}
-
-}
    
+    window.open("https://wa.me/573015423842?text=" + encodeURIComponent(mensaje));
+ 
 }
 </script>
 
